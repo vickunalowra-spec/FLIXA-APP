@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLIXA - Premier Cinema Experience</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    // Configure Tailwind with FLIXA brand colors
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            flixa: {
+              gold: '#d4af37',
+              cyan: '#00f2ff',
+              pink: '#ff007a',
+              dark: '#030712'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <script>
+    // Essential shim for process.env
+    window.process = window.process || { env: {} };
+  </script>
+
+  <style type="text/tailwindcss">
+    /* These directives are REQUIRED so Vite's PostCSS knows where to put your @layer code */
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    @layer base {
+      body {
+        @apply bg-[#030712] text-slate-100 antialiased;
+      }
+    }
+
+    .stylish-text { letter-spacing: -0.02em; }
+    
+    .gold-gradient {
+      @apply text-[#d4af37];
+      background: linear-gradient(135deg, #d4af37 0%, #f9e29c 50%, #b8860b 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .eye-catchy-gradient {
+      @apply text-[#00f2ff];
+      background: linear-gradient(135deg, #00f2ff 0%, #ff007a 50%, #d4af37 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #030712; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { 
+      background: #d4af37; 
+      border-radius: 10px;
+    }
+  </style>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react@^19.2.3",
+      "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+      "react/": "https://esm.sh/react@^19.2.3/",
+      "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+      "vite": "https://esm.sh/vite@^7.3.1",
+      "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+    }
+  }
+  </script>
+  
+  <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div id="root" class="min-h-screen"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
